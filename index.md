@@ -13,6 +13,8 @@ humandate: "Nov 12-13, 2020"    # human-readable dates for the workshop (e.g., "
 humantime: "9:00 am - 4:30 pm CET"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
 startdate: 2020-11-12      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: 2020-11-13        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
+starttime: 15:00:00Z         # machine-readable start time for each day of the workshop in the UTC time zone in hh:mm:ssZ format like 13:30:00Z
+endtime: 22:30:00Z           # machine-readable end time for each day of the workshop in the UTC time zone in hh:mm:ssZ format like 13:30:00Z
 instructor: ["Sarah Lin", "Thomas Guignard"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
 helper: ["TBD"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 email: ["sarah.lin@rstudio.com","thomas.guignard@gmail.com"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
