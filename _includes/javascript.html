@@ -56,14 +56,14 @@ $('.nav-tabs li a').click(function(){
   // Calendar elements based on start and end dates
   cal_nrdays = "{{ page.enddate }}".split("-").pop() - "{{ page.startdate }}".split("-").pop() + 1; 
   cal_subject = "{% if site.carpentry == "swc" %}Software{% elsif site.carpentry == "lc" %}Library{% elsif site.carpentry == "dc" %}Data{% endif %} Carpentry Workshop {{ page.humantime }}";
-  cal_details = "{% if site.carpentry == "swc" %}Software{% elsif site.carpentry == "lc" %}Library{% elsif site.carpentry == "dc" %}Data{% endif %} Carpentry Workshop at {{ page.venue }}";
+  cal_details = "{% if site.carpentry == "swc" %}Software{% elsif site.carpentry == "lc" %}Library{% elsif site.carpentry == "dc" %}Data{% endif %} Carpentry Workshop at {{ page.venue }}. More details at {{ site.url }}";
   
   // Generate Google Calendar link
   gcal_link = "//calendar.google.com/calendar/render?action=TEMPLATE&text=" + cal_subject + 
   "&dates={{ page.startdate | replace: "-", "" }}T{{ page.starttime | replace: ":", "" }}/{{ page.startdate | replace: "-", "" }}T{{ page.endtime | replace: ":", "" }}"+
   "&recur=RRULE:FREQ=DAILY;COUNT=" + cal_nrdays +
   "&trp=false&sprop&sprop=name:&sf=true&output=xml&location={{ page.address }}&details=" + cal_details;
-  document.getElementById('gcalLink').setAttribute("href",gcal_link);
+  document.getElementById('gcalLink').setAttribute("href",encodeURI(gcal_link));
   
   // Generate iCal file for adding workshop to Outlook or Apple Calendar
   ical_event = ics();
