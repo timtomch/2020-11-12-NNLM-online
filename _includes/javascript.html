@@ -57,7 +57,7 @@ $('.nav-tabs li a').click(function(){
   // Still need to code a way for this to degrade gracefully in case start and end times are not provided, or incorrectly provided!
   cal_nrdays = "{{ page.enddate }}".split("-").pop() - "{{ page.startdate }}".split("-").pop() + 1; 
   cal_subject = "{% if site.carpentry == "swc" %}Software{% elsif site.carpentry == "lc" %}Library{% elsif site.carpentry == "dc" %}Data{% endif %} Carpentry Workshop {{ page.humantime }}";
-  cal_details = "{% if site.carpentry == "swc" %}Software{% elsif site.carpentry == "lc" %}Library{% elsif site.carpentry == "dc" %}Data{% endif %} Carpentry Workshop at {{ page.venue }}. More details at {{ site.url }}{{ page.slug }}";
+  cal_details = "{% if site.carpentry == "swc" %}Software{% elsif site.carpentry == "lc" %}Library{% elsif site.carpentry == "dc" %}Data{% endif %} Carpentry Workshop at {{ page.venue }}. More details at " + location.href;
   
   // Generate Google Calendar link
   gcal_link = "//calendar.google.com/calendar/render?action=TEMPLATE&text=" + cal_subject + 
