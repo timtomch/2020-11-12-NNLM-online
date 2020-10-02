@@ -63,7 +63,6 @@ $('.nav-tabs li a').click(function(){
   "&dates={{ page.startdate | replace: "-", "" }}T{{ page.starttime | replace: ":", "" }}/{{ page.startdate | replace: "-", "" }}T{{ page.endtime | replace: ":", "" }}"+
   "&recur=RRULE:FREQ=DAILY;COUNT=" + cal_nrdays +
   "&trp=false&sprop&sprop=name:&sf=true&output=xml&location={{ page.address }}&details=" + cal_details;
-  console.log(gcal_link);
   document.getElementById('gcalLink').setAttribute("href",gcal_link);
   
   // Generate iCal file for adding workshop to Outlook or Apple Calendar
@@ -71,7 +70,6 @@ $('.nav-tabs li a').click(function(){
   ical_startarray = "{{ page.startdate }}".split("-");
   
   for (i=0; i < cal_nrdays; i++) {
-	  console.log(ical_startarray.join("-"));
 	  ical_event.addEvent(cal_subject, cal_details, "{{ page.address }}", ical_startarray.join("-")+"T{{ page.starttime }}", ical_startarray.join("-")+"T{{ page.endtime }}");
 	  ical_startarray[2] = parseInt(ical_startarray[2])+1;
   }
